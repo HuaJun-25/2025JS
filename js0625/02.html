@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 宣告兩個變數存放資料
+        var a = 5;
+        var b = 3;
+        // 加總結果給另一個變數
+        var c = a + b;
+        console.log(a + "+" + b + "=" + c); //5+3=8
+
+        // 改用樣板字串 template string(字串字面值)
+        // 使用反引號(``)
+        // 變數部分: ${變數名稱}
+        console.log(`${a}+${b}=${c} (使用變數c)`);
+        console.log(`${a}+${b}=${a+b} (使用a+b)`);
+
+        // 布林值+ if用法
+        var score = 90;
+        // console.log(score >= 60);
+        /*
+        if (score >= 60){
+            console.log("及格");
+        } else {
+            console.log("不及格");
+        }*/
+        
+        if (score >= 60){
+            console.log(`${score}分=>及格`);
+        } else {
+            console.log(`${score}分=>不及格`);
+        }
+
+        // 四則運算
+        var a =5;
+        var b=3;
+
+        /*console.log(`${a}+${b}=${a+b}`);
+        console.log(`${a}-${b}=${a-b}`);
+        console.log(`${a}*${b}=${a*b}`);
+        console.log(`${a}/${b}=${a/b}(商數)`);
+        console.log(`${a}%${b}=${a%b}(餘數)`);
+        console.log(`${a}**${b}=${a**b}(次方)`);*/
+
+        var op="~";
+
+        // 使用if else if
+        if (op == "+"){
+            console.log(`${a}+${b}=${a+b}`);
+        }else if(op =="-"){
+            console.log(`${a}-${b}=${a-b}`);
+        }else if(op =="*"){
+            console.log(`${a}*${b}=${a*b}`);
+        }else if(op =="/"){
+            console.log(`${a}/${b}=${a/b}`);
+        }else if(op =="%"){
+            console.log(`${a}%${b}=${a%b}`);
+        }else if(op =="**"){
+            console.log(`${a}**${b}=${a**b}`);
+        }else {
+            console.log(op+" 運算符號不存在");
+        }
+    
+
+        // 使用switch
+        switch(op){
+            case "+":
+                console.log(`${a}+${b}=${a+b}`);
+                break;
+            case "-":
+                console.log(`${a}-${b}=${a-b}`);
+                break;
+            case "*":
+                console.log(`${a}*${b}=${a*b}`);
+                break;    
+            case "/":
+                console.log(`${a}/${b}=${a/b}`);
+                break;
+            case "%":
+                console.log(`${a}%${b}=${a%b}`);
+                break;
+            case "**":
+                console.log(`${a}**${b}=${a**b}`);
+                break;
+            default: 
+                console.log(op+" 運算符號不存在");
+        }
+
+
+
+    </script>
+</body>
+
+</html>

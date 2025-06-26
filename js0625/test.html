@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="輸入" id="myinput">
+    <input type="text" placeholder="倍數" id="myinput2">
+    <button onclick="btnClick()">click</button>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+        var acc = "admin";
+        var pass = "1234";
+
+        if (acc == "admin" && pass == "1234") {
+            console.log("帳密正確");
+        } else if (acc == "admin" && pass != "1234") {
+            console.log("密碼錯誤");
+        } else if (acc != "admin" && pass == "1234") {
+            console.log("帳號錯誤");
+        } else {
+            console.log("帳密都錯");
+        }
+
+
+        function btnClick() {
+            var c = document.getElementById("myinput").value;
+            let d = document.getElementById("myinput2").value;
+            var result = "偶數";
+
+            // 奇偶數另一種寫法
+            if (c % 2 == 1) {
+                result = "奇數";
+            }
+            document.getElementById("demo").innerHTML = c + "是" + result;
+
+            /*
+            if (d.length === 0){ // 檢查空值，也可以用: !d
+                document.getElementById("demo2").innerHTML = "";
+            }else{
+                if (c % d === 0) {
+                    document.getElementById("demo2").innerHTML = `${c}是${d}的倍數`;
+                } else{
+                    document.getElementById("demo2").innerHTML = `${c}不是${d}的倍數`;
+                }
+            }*/
+
+            if (c % d === 0) {
+                document.getElementById("demo2").innerHTML = `${c}是${d}的倍數`;
+            } else {
+                document.getElementById("demo2").innerHTML = `${c}不是${d}的倍數`;
+            }
+            if (d.length === 0) { // 檢查空值，也可以用: !d
+                document.getElementById("demo2").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

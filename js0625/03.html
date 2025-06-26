@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 血型判斷，輸入視窗
+        // 宣告一個變數存放使用者輸入
+        var blood = "";
+        // 輸入視窗(prompt) 
+        // 轉大寫: toUpperCase()
+        // 轉小寫: toLowerCase()
+        blood = prompt("請輸入血型").toUpperCase();
+
+        if (blood == "A") {
+            console.log(`A型`);
+        } else if (blood == "B") {
+            console.log(`B型`);
+        } else if (blood == "O") {
+            console.log(`O型`);
+        } else if (blood == "AB") {
+            console.log("AB型");
+        } else {
+            console.log("no");
+        }
+
+        switch(blood){
+            case "A":
+                console.log("A型");
+                break;
+            case "B":
+                console.log("B型");
+                break;
+            case "O":
+                console.log("O型");
+                break;
+            case "AB":
+                console.log("AB型");
+                break;
+            default:
+                console.log("no");
+        }
+
+
+
+    </script>
+</body>
+
+</html>
