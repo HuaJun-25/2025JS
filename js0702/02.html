@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1~10相加
+        var sum = 0;
+        for (var i = 1; i <= 10; i++) {
+            sum = sum + i;
+        }
+        document.write(sum + "<br>");
+
+
+        // 1~100奇數和
+        sum = 0; // 可以重複用記得歸零
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 1) {
+                sum = sum + i;
+                //  document.write(i + " ");
+            }
+        }
+        /* 寫法2
+        for (var i = 1; i <= 100; i+=2) {
+            sum = sum + i;
+        }
+        */
+        document.write(sum + "<br>");
+
+
+        // 100~1偶數和
+        sum = 0;
+        for (var i = 100; i >= 1; i--) {
+            if (i % 2 == 0) {
+                sum = sum + i;
+                // document.write(i + " ");
+            }
+        }
+        /* 寫法2
+        for (var i = 100; i >= 2; i-=2) {
+            sum = sum + i;
+            document.write(i + " ");}
+        */
+        document.write(sum + "<br>");
+
+
+        // 1~100之間3和5倍數和
+        sum = 0;
+        var max = 0;
+        for (var i = 100; i >= 1; i--) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                max = i;
+                break;
+            }
+        }
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                sum = sum + i;
+                document.write(i);
+                if (i == max) {
+                    document.write("=");
+                    break;
+                } else {
+                    document.write("+");
+                }
+            }
+        }
+        document.write(sum + "<br>");
+
+
+        // 外層i控制列數，內層j控制*個數
+        for (var i = 1; i <= 5; i++) {
+            for (var j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+        // 九九乘法
+        var z = "0";
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) {
+                document.write(`${i}*${j}=`);
+                if (i * j < 10) {
+                    document.write(`${z}${i * j}　`);
+                } else {
+                    document.write(`${i * j}　`);
+                }
+            }
+            document.write("<br>");
+        }
+
+        var x=0;
+        for (var i = 0; i <= 5; i++) {
+            for (var k = (5-1); k >i; k--) {
+                document.write(" ");
+            }
+            for (var j = 0; j <= x; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+            x+=2;
+        }
+
+    </script>
+</body>
+
+</html>

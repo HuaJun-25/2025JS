@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">數值1</label>
+    <input type="number" id="n1">
+
+    <label for="">數值2</label>
+    <input type="number" id="n2">
+    <br>
+    <button onclick="tot()">加總</button>
+    <p id="result">結果</p>
+
+    <script>
+        //建立函式
+        function tot(){
+            //取數值1的位置和內容
+            //變數名稱可以和id名稱一樣
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            document.getElementById("result").textContent = n1+n2;
+        }
+    </script>
+</body>
+</html>
