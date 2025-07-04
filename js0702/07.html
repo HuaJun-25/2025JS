@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 取亂數 0-1 之間
+        // var rd = Math.random();
+        var rd = Math.random() * 100;
+        //去除小數後+1
+        console.log(Math.floor(rd) + 1);
+
+        var time = 0;
+        var num = Math.floor(rd) + 1;
+        var min = 1;
+        var max = 100;
+        
+        do{
+            var input = prompt("請輸入成績");
+
+            time++;         
+            if (input == null) {
+                break;
+            }
+            if (input > num) {
+                alert(`第${time}次：太大了(提示：${min}~${input})`);
+                max = parseInt(input);
+                continue;
+            } else if (input == num) {
+                alert("第${time}次：猜對了");
+                break;
+            } else {
+                alert(`第${time}次：太小了(提示：${input}~${max})`);
+                min = parseInt(input);
+                continue;
+            }
+                               
+        }while(1);
+
+    </script>
+</body>
+
+</html>
