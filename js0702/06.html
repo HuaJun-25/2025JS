@@ -18,10 +18,10 @@
         do {
             var input = prompt("請輸入成績");
             if (input == -1) { 
-                break; 
+                break;  
             } else if (input == null) { 
                 break; 
-            } else if (input == "") {
+            } else if (input.trim() == "") {
                 alert("不能空白，請重新輸入");
                 continue; 
             } else if (input < 0 || input > 100) {

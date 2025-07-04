@@ -96,12 +96,13 @@
         }
 
         var x=0;
+        let str="";
         for (var i = 0; i <= 5; i++) {
-            for (var k = (5-1); k >i; k--) {
-                document.write("_");
+            for (var k = (5-1-i); k <5; k--) {
+                let spaceStr=" ";
             }
             for (var j = 0; j <= x; j++) {
-                document.write("*");
+                let starStr = "*";
             }
             document.write("<br>");
             x+=2;
