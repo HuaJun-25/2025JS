@@ -14,16 +14,16 @@
     <script>
         var s = 0; //人數
         var r = 0; //及格
-        var sum=0; //總分
+        var sum = 0; //總分
         do {
             var input = prompt("請輸入成績");
-            if (input == -1) { 
-                break;  
-            } else if (input == null) { 
-                break; 
+            if (input == -1) {
+                break;
+            } else if (input == null) {
+                break;
             } else if (input.trim() == "") {
                 alert("不能空白，請重新輸入");
-                continue; 
+                continue;
             } else if (input < 0 || input > 100) {
                 alert("不是有效範圍0-100，請重新輸入");
                 continue;
@@ -33,13 +33,13 @@
             }
             var n1 = parseInt(input);
             s++;
-            if(input>=60){
+            if (input >= 60) {
                 r++;
             }
-            sum = sum+n1;
+            sum = sum + n1;
         } while (1);
 
-        document.getElementById("result").innerHTML = "及格人數: "+r+"人<br>不及格人數: "+(s-r)+"人<br>全班總分: "+sum+"<br>全班平均:" +(sum/s);
+        document.getElementById("result").innerHTML = "及格人數: " + r + "人<br>不及格人數: " + (s - r) + "人<br>全班總分: " + sum + "<br>全班平均:" + (sum / s);
     </script>
 </body>
 
