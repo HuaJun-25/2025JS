@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <label for="">數值1</label>
-    <input type="number" id="n1">
 
-    <label for="">數值2</label>
+<body>
+    <!-- 標籤 for後給id可以讓游標點label時顯示input-->
+    <label for="n1">數值1</label>
+    <!-- 文字方塊-可以改屬性 -->
+    <input type="number" id="n1">
+    <!-- id在同一個檔案命名不能重複(class可以重複) -->
+    <label for="n2">數值2</label>
     <input type="number" id="n2">
     <br>
     <button onclick="tot()">加總</button>
@@ -17,13 +21,23 @@
 
     <script>
         //建立函式
-        function tot(){
-            //取數值1的位置和內容
-            //變數名稱可以和id名稱一樣
-            var n1 = document.getElementById("n1").value;
-            var n2 = document.getElementById("n2").value;
-            document.getElementById("result").textContent = n1+n2;
+        function tot() {
+            // typeof:查看型別，文字方塊的資料型別是字串(無論輸入數字)
+            // console.log(typeof n1.value);
+            // 字串轉數值: parseInt()/parseFloat()
+            // console.log(typeof parseInt(n1.value)); 
+            // 數值轉字串: toString()
+            // var strNum = 123;
+            // console.log(typeof strNum.toString());
+            
+            //取數值1的位置和內容，變數名稱可以和id名稱一樣
+            var n1 = document.getElementById("n1");
+            var n2 = document.getElementById("n2");
+            
+            // 找到result位置.取代
+            document.getElementById("result").textContent = parseInt(n1.value) + parseInt(n2.value);
         }
     </script>
 </body>
+
 </html>

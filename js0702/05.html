@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // while&do-while
+        var sum = 0;
+        var i = 1;
+        while (i <= 5) {
+            sum = sum + i;
+            i++;
+        }
+
+        sum = 0;
+        i = 0;
+        while (i < 5) {
+            i++;
+            sum = sum + i;
+        }
+
+        sum = 0;
+        i = 1;
+        do {
+            sum = sum + i;
+            i++;
+        } while (i <= 5);
+        document.write(`1+2+3+4+5=${sum}`);
+
+        do {
+            var month = prompt("請輸入月份");
+            if (month == null) { //按取消後回傳null結束迴圈
+                break; // 結束迴圈
+            } else if (month == "") {
+                alert("月份不能空白，請重新輸入");
+                continue; // 忽略以下程式敘述。回到迴圈開始的位置
+            } else if (month < 1 || month > 12) {
+                alert("月份不在範圍，請重新輸入");
+                continue;
+            } else if (isNaN(Number(month))) {
+                // 若是數字回傳數字，非數字回傳NaN，檢查NaN: isNaN(值)
+                alert("非數值，請重新輸入");
+                continue;
+            }
+            alert("輸入月份為: " + month);
+        } while (1); // true => 1，false => 2
+
+
+
+    </script>
+</body>
+
+</html>
