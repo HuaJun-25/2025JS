@@ -21,23 +21,32 @@
         var max = 100;
         
         do{
-            var input = prompt("請輸入成績");
+            var input = prompt("請輸入數字");
+            time++;
 
-            time++;         
             if (input == null) {
+                alert(`已取消`);
                 break;
-            }
-            if (input > num) {
+            } else if (input > num &&input<101) {
                 alert(`第${time}次：太大了(提示：${min}~${input})`);
                 max = parseInt(input);
                 continue;
             } else if (input == num) {
                 alert(`第${time}次：猜對了`);
                 break;
-            } else {
+            } else if(input < num&&input>0) {
                 alert(`第${time}次：太小了(提示：${input}~${max})`);
                 min = parseInt(input);
                 continue;
+            } else if (input.trim() == "") { 
+                alert("不能空白，請重新輸入");
+                continue;
+            } else if (isNaN(Number(input))) {
+                alert("非數字，請重新輸入");
+                continue;
+            } else if (input < 1 || input > 100) {
+                alert("不是有效範圍1-100，請重新輸入");
+                continue; 
             }
                                
         }while(1);
