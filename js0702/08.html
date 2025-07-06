@@ -28,6 +28,7 @@
 
             if (input == null) {
                 alert(`已取消`);
+                str = str + `第${times}次：取消<br>`;
                 break;
             } else if (input > num && input < 101) {
                 alert(`第${times}次：${input} =>太大了(提示：${min}~${input})`);
@@ -35,7 +36,7 @@
                 max = parseInt(input);
                 continue;
             } else if (input == num) {
-                alert(`第${times}次：${input}20 =>猜對了`);
+                alert(`第${times}次：${input} =>猜對了`);
                 str = str + `第${times}次：${input} =>猜對了<br>`;
                 break;
             } else if (input < num && input > 0) {
