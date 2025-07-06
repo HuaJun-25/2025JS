@@ -30,17 +30,17 @@
                 alert(`已取消`);
                 break;
             } else if (input > num && input < 101) {
-                alert(`第${times}次：太大了(提示：${min}~${input})`);
-                str = str + `第${times}次：太大了(提示：${min}~${input})<br>`;
+                alert(`第${times}次：${input} =>太大了(提示：${min}~${input})`);
+                str = str + `第${times}次：${input} =>太大了(提示：${min}~${input})<br>`;
                 max = parseInt(input);
                 continue;
             } else if (input == num) {
-                alert(`第${times}次：猜對了`);
-                str = str + `第${times}次：猜對了<br>`;
+                alert(`第${times}次：${input}20 =>猜對了`);
+                str = str + `第${times}次：${input} =>猜對了<br>`;
                 break;
             } else if (input < num && input > 0) {
-                alert(`第${times}次：太小了(提示：${input}~${max})`);
-                str = str + `第${times}次：太小了(提示：${input}~${max})<br>`;
+                alert(`第${times}次：${input} =>太小了(提示：${input}~${max})`);
+                str = str + `第${times}次：${input} =>太小了(提示：${input}~${max})<br>`;
                 min = parseInt(input);
                 continue;
             } else if (input.trim() == "") {
