@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        arr1 = [5, 60, 3, 90, 33, 1, 100];
+        let max = 0;
+        let min = 0;
+
+        console.log("for");
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] > max) {
+                max = arr1[i];
+            }
+            if (arr1[i] < max) {
+                min = arr1[i];
+            }
+        }
+        console.log(`最大值:${max}，最小值${min}`);
+
+
+        console.log("for-of");
+        arr1 = [5, 60, 3, 90, 33, 1, 100];
+        max = 0;
+        for (let n of arr1) {
+            if (arr1[n] > max) {
+                max = arr1[n];
+            }else if (arr1[n] < max){
+                min = arr1[n];
+            }
+        }
+        console.log(`最大值:${max}，最小值${min}`);
+
+        console.log("forEach");
+        arr1 = [5, 60, 3, 90, 33, 1, 100];
+        max = 0;
+        min = 0;
+        arr1.forEach((n) => {
+            if (arr1[n] > max) {
+                max = arr1[n];
+            }
+            if (arr1[n] < max) {
+                min = arr1[n];
+            }
+        })
+        console.log(`最大值:${max}，最小值${min}`);
+
+
+    </script>
+</body>
+
+</html>
