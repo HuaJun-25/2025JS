@@ -24,29 +24,24 @@
         }
         console.log(`最大值:${max}，最小值${min}`);
 
-
         console.log("for-of");
-        arr1 = [5, 60, 3, 90, 33, 1, 100];
-        max = 0;
         for (let n of arr1) {
-            if (arr1[n] > max) {
-                max = arr1[n];
-            }else if (arr1[n] < max){
-                min = arr1[n];
+            if (n > max) {
+                max = n;
             }
-        }
+            if (n < max) {
+                min = n;
+            }
+        } 
         console.log(`最大值:${max}，最小值${min}`);
 
         console.log("forEach");
-        arr1 = [5, 60, 3, 90, 33, 1, 100];
-        max = 0;
-        min = 0;
         arr1.forEach((n) => {
-            if (arr1[n] > max) {
-                max = arr1[n];
+            if (n > max) {
+                max =n;
             }
-            if (arr1[n] < max) {
-                min = arr1[n];
+            if (n < max) {
+                min = n;
             }
         })
         console.log(`最大值:${max}，最小值${min}`);
