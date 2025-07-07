@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <h2>陣列內找字串</h2><hr>
     <script>
         let arr1 = [1, 2, "a", 4, 5, "12345"];
 
@@ -28,6 +29,13 @@
 
         console.log("forEach");
         arr1.forEach((n) => {
+            if ((typeof n) == "string") {
+                console.log(n);
+            }
+        })
+
+        // map()
+        arr1.map((n) => {
             if ((typeof n) == "string") {
                 console.log(n);
             }

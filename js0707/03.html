@@ -8,43 +8,89 @@
 </head>
 
 <body>
+    <h2>陣列內比大小</h2><hr>
+    <ul>
+        <li>for</li>
+        <li>for of</li>
+        <li>forEach()</li>
+        <li>map()</li>
+        <li>sort()</li>
+        <li>數學類別Math</li>
+    </ul>
     <script>
-        arr1 = [5, 60, 3, 90, 33, 1, 100];
+        let arr1 = [5, 60, 3, 90, 33, 1, 100];
+        
+        /* 原本
         let max = 0;
         let min = 0;
-
-        console.log("for");
+        */
+         
+        let max = arr1[0]; //更改
+        let min = arr1[0]; //更改
+     
+        // for
         for (let i = 0; i < arr1.length; i++) {
             if (arr1[i] > max) {
                 max = arr1[i];
             }
-            if (arr1[i] < max) {
+            if (arr1[i] < min) {
                 min = arr1[i];
             }
         }
-        console.log(`最大值:${max}，最小值${min}`);
+        console.log(`最大值:${max}，最小值:${min}`);
 
-        console.log("for-of");
+        // for of
+        max = arr1[0]; //修改
+        min = arr1[0]; //修改
         for (let n of arr1) {
             if (n > max) {
                 max = n;
             }
-            if (n < max) {
+            if (n < min) {
                 min = n;
             }
         }
-        console.log(`最大值:${max}，最小值${min}`);
+        console.log(`最大值:${max}，最小值:${min}`);
 
-        console.log("forEach");
+        // forEach
+        max = arr1[0]; //修改
+        min = arr1[0]; //修改
         arr1.forEach((n) => {
             if (n > max) {
                 max = n;
             }
-            if (n < max) {
+            if (n < min) {
                 min = n;
             }
         })
-        console.log(`最大值:${max}，最小值${min}`);
+        console.log(`最大值:${max}，最小值:${min}`);
+
+        // map
+        max = arr1[0]; //修改
+        min = arr1[0]; //修改
+        arr1.map((n) => {
+            if (n > max) {
+                max = n;
+            }
+            if (n < min) {
+                min = n;
+            }
+        })
+        console.log(`最大值:${max}，最小值:${min}`);
+
+        // sort
+        arr1.sort((a,b)=>{
+            return a - b;
+        });
+        console.log(`最大值:${arr1[arr1.length-1]}，最小值:${arr1[0]}`);
+
+        // 數學類別
+        // 最大值 => Math.max()
+        // 最小值 => Math.min()
+        // 其餘值 => ...
+        max = Math.max(...arr1);
+        min = Math.min(...arr1);
+        console.log(`最大值:${max}，最小值:${min}`);
 
 
     </script>
