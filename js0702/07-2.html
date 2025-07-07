@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 作業08.第二種寫法: 表單 -->
+    <h2>猜數字</h2>
+    <div id="game">
+        請輸入數字：
+        <!-- type改成number就不用再判斷非數字 -->
+        <input type="number" id="txtNo">
+        <button onclick="btnClick()">確定</button>
+    </div>
+    <p id="result"></p>
+    <button id="btn2" onclick="btnReset()" style="display:none;">再玩一次</button>
+    <script>
+
+        let game = document.getElementById("game"); //取得遊戲區
+        let reset = document.getElementById("btn2"); //取得重玩按鈕
+        let result = document.getElementById("result");
+        let rd = Math.floor(Math.random() * 100) + 1;
+        let min = 1;
+        let max = 100;
+        times = 1;
+        console.log(rd);
+        let txtNo = ""; //全域/公用變數(可以跨函式使用)
+
+        function btnClick() {
+            txtNo = document.getElementById("txtNo");
+            //取得輸入的數字字串->再轉換回數字
+            let input = parseInt(txtNo.value);
+
+            if (isNaN(input)) {
+                result.innerHTML += `不能空白<br>`;
+            }
+
+            if (input === rd) {
+                result.innerHTML += `第${times}次：猜對`;
+                game.style.display = "none";
+                btn2.style.display = "block"; //重玩按鈕隱藏
+                times++;
+                return; //結束function 
+            } else if (input > rd) {
+                max = input;
+                result.innerHTML += `第${times}次：太大，提示${min}~${max}<br>`;
+                times++;
+            } else if (input < rd) {
+                min = input;
+                result.innerHTML += `第${times}次：太小，提示${min}~${max}<br>`;
+                times++;
+            }
+            txtNo.value = "";//文字方塊清除
+            txtNo.focus(); //游標到文字方塊上
+        }
+
+        function btnReset() {
+            // 清除，重設資料
+            txtNo.value = "";
+            result.innerHTML = "";
+            rd = Math.floor(Math.random() * 100) + 1;
+            min = 1;
+            max = 100;
+            times = 0;
+
+            game.style.display = "block"; //顯示遊戲區
+            btn2.style.display = "none"; //重玩按鈕隱藏
+
+            console.log(rd);
+        }
+    </script>
+</body>
+
+</html>

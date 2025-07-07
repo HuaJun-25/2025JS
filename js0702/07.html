@@ -8,56 +8,65 @@
 </head>
 
 <body>
+    <!-- 作業08.更改 -->
+    <h2>猜數字</h2>
     <p id="result">結果</p>
     <script>
-        // 取亂數 0-1 之間
-        // var rd = Math.random();
-        var rd = Math.random() * 100;
-        //去除小數後+1
-        console.log(Math.floor(rd) + 1);
+        // 改let宣告比較嚴謹，let不能被重複定義
+        // 直接在亂數+1就不用再宣告新的變數
+        let num = Math.floor(Math.random() * 100) + 1;
+        console.log(num);
 
-        var times = 0;
-        var num = Math.floor(rd) + 1;
+        var times = 1;
         var min = 1;
         var max = 100;
-        str = "";
+        let str = "";
+        let str1 = "";
 
         do {
-            var input = prompt("請輸入數字");
-            
-            if (input.trim() == "") {
-                alert(`不能空白，請重新輸入(提示：${min}~${max})`);
-                str = str + `不能空白，請重新輸入(提示：${min}~${max})<br>`;
-                continue;
-            } else if (isNaN(Number(input))) {
-                alert(`非數字，請重新輸入(提示：${min}~${max})`);
-                str = str + `非數字，請重新輸入(提示：${min}~${max})<br>`;
-                continue;
-            } else if (input < 1 || input > 100) {
-                alert(`不是有效範圍1-100，請重新輸入(提示：${min}~${max})`);
-                str = str + `不是有效範圍1-100，請重新輸入(提示：${min}~${max})<br>`;
-                continue;
-            }
-            times++;
+            var input = prompt(`請輸入數字：${min}~${max}`);
 
             if (input == null) {
                 alert(`已取消`);
-                str = str + `第${times}次：取消<br>`;
+                str = str + `取消<br>`;
                 break;
-            } else if (input > num && input < 101) {
-                alert(`第${times}次：${input} =>太大了(提示：${min}~${input})`);
-                str = str + `第${times}次：${input} =>太大了(提示：${min}~${input})<br>`;
-                max = parseInt(input);
+            }
+            if (input == num) {
+                str1 = `第${times}次：${input} =>猜對了`;
+                alert(str1);
+                str += str1 + "<br>";
+                times++;
+                break;
+            }
+            if (input.trim() == "") {
+                alert(`不能空白，請重新輸入(提示：${min}~${max})`);
                 continue;
-            } else if (input == num) {
-                alert(`第${times}次：${input} =>猜對了`);
-                str = str + `第${times}次：${input} =>猜對了<br>`;
-                break;
+            }
+
+            // 有資料的處理再轉換數字
+            input = parseInt(input);
+
+            if (isNaN(Number(input))) {
+                alert(`非數字，請重新輸入(提示：${min}~${max})`);
+                continue;
+            }
+            if (input < 1 || input > 100) {
+                alert(`不是有效範圍1-100，請重新輸入(提示：${min}~${max})`);
+                continue;
+            }
+
+            if (input > num && input < 101) {
+                max = input;
+                str1 = `第${times}次：${input} =>太大了(提示：${min}~${max})`;
+                alert(str1);
+                str += str1 + "<br>";
+                times++;
             } else if (input < num && input > 0) {
-                alert(`第${times}次：${input} =>太小了(提示：${input}~${max})`);
-                str = str + `第${times}次：${input} =>太小了(提示：${input}~${max})<br>`;
-                min = parseInt(input);
-                continue;
+                min = input;
+                str1 = `第${times}次：${input} =>太小了(提示：${min}~${max})`;
+                alert(str1);
+                str += str1 + "<br>";
+                times++;
             }
 
         } while (1);
