@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>陣列</h3>
+    <ul>
+        <li>push():增加新值到陣列最後一個位置</li>
+        <li>indexOf()/includes():尋找陣列中的指定元素</li>
+        <li>(條件式) ? 條件成立 : 條件不成立</li>
+        <li>filter陣列篩選</li>
+    </ul>
+    <script>
+        let arr1 = [1, 2, 3];
+
+        // 𝟭.取得陣列長度->給值
+        arr1[arr1.length] = 'a';
+        // 𝟮.使用push()
+        arr1.push("123");
+        console.log(arr1);
+
+        let arr2 = ['html', 'css', 'js', 'figma', 'ui', 'css3'];
+        // 𝟭.for
+        for (let i = 0; i < arr2.length; i++) {
+            if (arr2[i] == 'css') {
+                //   console.log(`找到css在第${i+1}個位置`);
+                break;
+            }
+        }
+        // 𝟮.indexOf(目標,從第x個位置開始找) ->回傳第一次找到，-1表示找不到 
+        if (arr2.indexOf('css4') !== -1) {
+            console.log(`找到css在${arr2.indexOf('css') + 1}`);
+        } else {
+            console.log("不存在");
+        }
+
+        // 𝟯.includes(目標) ->回傳true/false，沒辦法找位置 
+        /*if (arr2.includes("css")) { //==true可以省略不寫(默認就是==true)
+            console.log("找到");
+        }*/
+        // 使用三元運算子: (條件式) ? 條件成立 : 條件不成立
+        (arr2.includes("css")) ? console.log("(三元運算)找到") : console.log("(三元運算)不存在");
+
+        let arr3 = [1, 6, 7, 100, 234];
+        // 區塊中的程式敘述只有一行可以省略: { return }
+        // 原式: let arr4 = arr3.map((n) => { return n * 2; });
+        let arr4 = arr3.map((n) => n * 2);
+
+        // 找出陣列中奇數
+        // 用for的話要用push()，不然會有空值
+        let arr5 = [];
+        for (let i = 0; i < arr3.length; i++) {
+            if (arr3[i] % 2 != 0) {
+                arr5.push(arr3[i]);
+            }
+        }
+
+        arr3.map((n) => {
+            if (n % 2 != 0) {
+                return arr5.push(n);
+            }
+        });
+
+
+        // filter ->只回傳/留下符合條件的元素
+        arr5 = arr3.filter((n) => {
+            if (n % 2 != 0) {
+                return true;
+            }
+        });
+
+        // 簡化1
+        arr5 = arr3.filter((n) => {
+            return n % 2 != 0
+        });
+
+        //簡化2
+        arr5 = arr3.filter((n) => n % 2 != 0);
+
+        console.log(arr5);
+
+        let arr6 = arr3.filter((n)=>{
+            if (n >= 100) {
+                return true;
+            }
+        })
+
+        // 簡化 
+        arr6 = arr3.filter((n) => n >= 100);
+
+        console.log(arr6);
+
+
+    </script>
+</body>
+
+</html>

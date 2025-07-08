@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    威力彩: 1~38取6 + 1~8取1
+    大樂透: 1~49取6 + 1~49取1
+    今彩: 1~39取5
+    --------------
+    未排序:<br>排序: 
+    -->
+    <p id="result">結果</p>
+    <script>
+        let num = 0;
+        let arr = [];
+        let sp;
+        let step = 0; //存重複的值
+        let str = "";
+
+        let input = prompt("1.威力彩 2.大樂透 3.今彩");
+        switch (input) {
+            case "1"://威力彩
+                num = 10;
+                for (let i = 0; i < 6; i++) {
+                    let rd = Math.floor(Math.random() * num) + 1;
+                    if (rd != step) {
+                        step = rd;
+                        arr.push(step);
+                    }
+
+                }
+                sp = Math.floor(Math.random() * 8) + 1;
+                str = `威力彩: ${arr} ，特別號: ${sp}<br>`;
+                break;
+            case "2"://大樂透
+                num = 49;
+                for (let i = 0; i < 6; i++) {
+                    let rd = Math.floor(Math.random() * num) + 1;
+                    if (rd != step) {
+                        step = rd;
+                        arr.push(step);
+                    }
+                }
+                sp = Math.floor(Math.random() * 49) + 1;
+                str = `大樂透: ${arr} ，特別號: ${sp}<br>`;
+                break;
+            case "3"://今彩
+                num = 39;
+                for (let i = 0; i < 5; i++) {
+                    let rd = Math.floor(Math.random() * num) + 1;
+                    if (rd != step) {
+                        step = rd;
+                        arr.push(step);
+                    }
+                }
+                str = `今彩: ${arr}<br>`;
+                break;
+        }
+        console.log(arr);
+        console.log(sp);
+        let arr2 = arr.sort((a, b) => a - b);
+        document.getElementById("result").innerHTML = str + arr2;
+
+    </script>
+</body>
+
+</html>
