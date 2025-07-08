@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <input type="number" id="input">
+    <button onclick="tot()">點</button>
+    <hr><p id="result"></p>
+
+    <script>
+        let num = 0;
+        let arr = [];
+        // let str = `排序前: ${arr}`;
+
+        //let input = prompt("1.威力彩 2.大樂透 3.今彩");
+
+
+        function tot(op) {
+            switch (op) {
+                case "1"://威力彩
+                    num = 38;
+                    do {
+                        let rd = Math.floor(Math.random() * num) + 1;
+
+                        if (arr.includes(rd) == false) {
+                            arr.push(rd);
+                        }
+                    }
+                    while (arr.length != 6)
+                    document.getElementById("result").innerHTML = `排序前:${arr}<br>排序後: ${arr.sort((a, b) => a - b)}`;
+                    break;
+                case "2"://大樂透
+                    num = 49;
+                    let times = 0;
+                    for (let i = 0; times <= 6; i++) {
+                        let rd = Math.floor(Math.random() * num) + 1;
+                        if (arr.includes(rd) == false) {
+                            arr.push(rd);
+                            times++;
+                        }
+                    }
+                    document.getElementById("result").innerHTML =`排序前:${arr}<br>排序後: ${arr.sort((a, b) => a - b)}`;
+                    break;
+                case "3"://今彩
+                    num = 39;
+                    for (let i = 0; i <= 5; i++) {
+                        let rd = Math.floor(Math.random() * num) + 1;
+                        if (arr.includes(rd) == false) {
+                            arr.push(rd);
+                        } else {
+                            i-- // 有重覆要讓次數回到沒做的時候
+                        }
+                    }
+                    document.getElementById("result").innerHTML = `排序前:${arr}<br>排序後: ${arr.sort((a, b) => a - b)}`;
+                    break;
+            }
+
+            console.log(arr);
+            // let arr2 = arr.sort((a, b) => a - b);
+
+        }
+
+    </script>
+</body>
+
+</html>

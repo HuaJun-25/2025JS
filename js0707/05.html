@@ -15,57 +15,60 @@
     --------------
     未排序:<br>排序: 
     -->
+    <h3>威力彩，大樂透，今彩</h3>
+    <hr>
     <p id="result">結果</p>
+
     <script>
         let num = 0;
         let arr = [];
         let str = "";
-        let times= 0;
+        let sp = 0;
+
 
         let input = prompt("1.威力彩 2.大樂透 3.今彩");
         switch (input) {
             case "1"://威力彩
                 num = 38;
-                do{
+                do {
                     let rd = Math.floor(Math.random() * num) + 1;
-
-                    if(arr.includes(rd) == false){
+                    if (arr.includes(rd) == false) {
                         arr.push(rd);
-                    }   
-                }                
-                while(arr.length != 6)
-                
-                
-                str = `威力彩: ${arr}<br>`;
+                    }
+                }
+                while (arr.length != 6)
+                str = `威力彩<br>排序前：${arr}<br>`;
+                sp = Math.floor(Math.random() * 8) + 1;
                 break;
             case "2"://大樂透
                 num = 49;
-                
+                let times = 0;
                 for (let i = 0; times <= 6; i++) {
                     let rd = Math.floor(Math.random() * num) + 1;
-                    if (arr.includes(rd) == false){
+                    if (arr.includes(rd) == false) {
                         arr.push(rd);
                         times++;
-                    }   
+                    }
                 }
-                //sp = Math.floor(Math.random() * 49) + 1;
-                str = `大樂透: ${arr}<br>`;
+                // sp = 
+                str = `大樂透<br>排序前：${arr}<br>`;
                 break;
             case "3"://今彩
                 num = 39;
                 for (let i = 0; i <= 5; i++) {
                     let rd = Math.floor(Math.random() * num) + 1;
-                    if (arr.includes(rd) == false){
+                    if (arr.includes(rd) == false) {
                         arr.push(rd);
-                        times++;
-                    }   
+                    } else {
+                        i-- //有重覆要讓次數回到沒做的時候
+                    }
                 }
-                str = `今彩: ${arr}<br>`;
+                str = `今彩<br>排序前：${arr}<br>`;
                 break;
         }
         console.log(arr);
         let arr2 = arr.sort((a, b) => a - b);
-        document.getElementById("result").innerHTML = `${str}排序後: ${arr2}`;
+        document.getElementById("result").innerHTML = `${str}排序後：${arr2}<br>第二區號碼：${sp}`;
 
     </script>
 </body>
