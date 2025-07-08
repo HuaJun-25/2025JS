@@ -18,8 +18,11 @@
     <h3>威力彩，大樂透，今彩</h3>
     <hr>
     <p id="result">結果</p>
-
+    <!-- <p id="result1">排序前：</p>
+    <p id="result2">排序後：</p>
+    <p id="result3">第二區：</p> -->
     <script>
+
         let num = 0;
         let arr = [];
         let str = "";
@@ -28,7 +31,8 @@
 
         let input = prompt("1.威力彩 2.大樂透 3.今彩");
         switch (input) {
-            case "1"://威力彩
+            case "1":
+            case "威力彩":
                 num = 38;
                 do {
                     let rd = Math.floor(Math.random() * num) + 1;
@@ -37,23 +41,25 @@
                     }
                 }
                 while (arr.length != 6)
-                str = `威力彩<br>排序前：${arr}<br>`;
+                str = `威力彩<br>排序前：${arr}<br>排序後：`;
                 sp = Math.floor(Math.random() * 8) + 1;
                 break;
-            case "2"://大樂透
+            case "2":
+            case "大樂透":
                 num = 49;
                 let times = 0;
-                for (let i = 0; times <= 6; i++) {
+                for (let i = 0; times <= 7; i++) {
                     let rd = Math.floor(Math.random() * num) + 1;
                     if (arr.includes(rd) == false) {
                         arr.push(rd);
                         times++;
                     }
                 }
-                // sp = 
-                str = `大樂透<br>排序前：${arr}<br>`;
+                sp = arr.pop(); //大樂透取7個，把最後的值拿出來
+                str = `大樂透<br>排序前：${arr}<br>排序後：`;
                 break;
-            case "3"://今彩
+            case "3":
+            case "今彩":
                 num = 39;
                 for (let i = 0; i <= 5; i++) {
                     let rd = Math.floor(Math.random() * num) + 1;
@@ -68,7 +74,7 @@
         }
         console.log(arr);
         let arr2 = arr.sort((a, b) => a - b);
-        document.getElementById("result").innerHTML = `${str}排序後：${arr2}<br>第二區號碼：${sp}`;
+        document.getElementById("result").innerHTML = `${str}${arr2}<br>第二區：${sp}`;
 
     </script>
 </body>
