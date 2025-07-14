@@ -9,15 +9,15 @@
 
 <body>
 
-    <input type="number" id="input">
-    <button onclick="tot()">點</button>
+    <button onclick="lott1()">威力彩</button>
+    <button onclick="lott2()">大樂透</button>
+    <button onclick="lott3()">今彩</button>
     <hr>
     <p id="result1">排序前：</p>
     <p id="result2">排序後：</p>
     <p id="result3">第二區：</p>
 
     <script>
-        let num = 0;
         let arr = [];
         // let str = `排序前: ${arr}`;
 
@@ -31,7 +31,9 @@
             }
             while (arr.length != 6)
             let sp = Math.floor(Math.random() * 8) + 1;
-            document.getElementById("result").innerHTML = `排序前：${arr}<br>排序後：${arr.sort((a, b) => a - b)}<br>第二區：${sp}`;
+            document.getElementById("result1").innerHTML = `排序前：${arr}`;
+            document.getElementById("result2").innerHTML = `排序後：${arr.sort((a, b) => a - b)}`;
+            document.getElementById("result3").innerHTML = `第二區：${sp}`;
 
         }
 
@@ -44,8 +46,9 @@
             }
             while (arr.length != 7)
             let sp = arr.pop();
-            document.getElementById("result").innerHTML = `排序前：${arr}<br>排序後：${arr.sort((a, b) => a - b)}<br>第二區：${sp}`;
-
+            document.getElementById("result1").innerHTML = `排序前：${arr}`;
+            document.getElementById("result2").innerHTML = `排序後：${arr.sort((a, b) => a - b)}`;
+            document.getElementById("result3").innerHTML = `第二區：${sp}`;
         }
 
         function lott3() { //今彩
@@ -56,8 +59,9 @@
                 }
             }
             while (arr.length != 5)
-            document.getElementById("result").innerHTML = `排序前：${arr}<br>排序後：${arr.sort((a, b) => a - b)}`;
-
+            document.getElementById("result1").innerHTML = `排序前：${arr}`;
+            document.getElementById("result2").innerHTML = `排序後：${arr.sort((a, b) => a - b)}`;
+            document.getElementById("result3").innerHTML = ` `;
         }    
 
     </script>
