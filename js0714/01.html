@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>函式</h3>
+    <ui>
+        <li>𝟭.有參數，無return</li>
+        <li>𝟮.有參數，有return值: return a + b</li>
+        <li>𝟯.函式呼叫函式</li>
+        <li>𝟰.參數放函式: 函式1(函式2())</li>
+    </ui>
+    <hr>
+    <label for="name">請輸入姓名:</label>
+    <input type="text" id="name">
+    <button onclick="sayHi3(getName())">確定</button>
+    <p id="show"></p>
+    <script>
+        //不需要加let，直接放變數(變數名稱不能數字開頭)
+        //𝟭.有參數，無傳回值return
+        function sum(a, b) {
+            console.log(a + b);
+        }
+        // 𝟮.有參數，有傳回值return
+        function sum(a, b) {
+            document.write(``);
+            return a + b;
+        }
+
+        // 𝟭.有參數，無傳回值return
+        // 此範例最適合
+        function sayHi() {
+            let name = document.getElementById("name").value;
+            //let show = document.getElementById("show");
+            show.textContent = `Hi,${name}`; //純文字
+            show.innerHTML = `Hi,<br>${name}`; //使用html標籤
+            show.innerText = `Hi\n,${name}`; //使用跳脫字元，沒辦法用html標籤
+        }
+
+        // '取得名字'
+        function getName(){
+            // 取的文字方塊內容要寫在函式內，在外面會先執行取不到輸入值
+            let name = document.getElementById("name").value;
+            return name;
+        }
+        // 𝟯.呼叫取得名字函式
+        function sayHi2() {
+            show.innerHTML = `Hi,${getName()}`; 
+        }
+        // 𝟰.按鈕直接傳入呼叫'取得名字'函式的參數: sayHi3(getName())
+        // uName參數是從getName()取得
+        function sayHi3(uName){
+            show.innerHTML = `Hi,${uName}`; 
+        }
+
+
+    </script>
+</body>
+
+</html>
