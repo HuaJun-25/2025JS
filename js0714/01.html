@@ -43,21 +43,20 @@
         }
 
         // '取得名字'
-        function getName(){
+        function getName() {
             // 取的文字方塊內容要寫在函式內，在外面會先執行取不到輸入值
             let name = document.getElementById("name").value;
             return name;
         }
         // 𝟯.呼叫取得名字函式
         function sayHi2() {
-            show.innerHTML = `Hi,${getName()}`; 
+            show.innerHTML = `Hi,${getName()}`;
         }
         // 𝟰.按鈕直接傳入呼叫'取得名字'函式的參數: sayHi3(getName())
         // uName參數是從getName()取得
-        function sayHi3(uName){
-            show.innerHTML = `Hi,${uName}`; 
+        function sayHi3(uName) {
+            show.innerHTML = `Hi,${uName}`;
         }
-
 
     </script>
 </body>
