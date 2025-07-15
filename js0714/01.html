@@ -14,6 +14,7 @@
         <li>𝟮.有參數，有return值: return a + b</li>
         <li>𝟯.函式呼叫函式</li>
         <li>𝟰.參數放函式: 函式1(函式2())</li>
+        <li>𝟱.參數放陣列</li>
     </ui>
     <hr>
     <label for="name">請輸入姓名:</label>
@@ -58,20 +59,20 @@
             show.innerHTML = `Hi,${uName}`;
         }
 
-
-        let score=[99,100,30];
+        // 𝟱.參數放陣列
+        let score = [99, 100, 30];
         show2(score);
         console.log(double(score));
 
-        function show2(arr){
-            for(let i =0;i<arr.length;i++){
+        function show2(arr) {
+            for (let i = 0; i < arr.length; i++) {
                 console.log(arr[i]);
             }
         }
-        function double(arr){
-            let newarr= [];
-            for(let i =0;i<arr.length;i++){
-                newarr.push(arr[i]*2);
+        function double(arr) {
+            let newarr = [];
+            for (let i = 0; i < arr.length; i++) {
+                newarr.push(arr[i] * 2);
             }
             return newarr;
         }
