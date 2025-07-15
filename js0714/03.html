@@ -9,21 +9,21 @@
 
 <body>
     <script>
-        // 1.
+        // 1.輸出1, 2, 3, ..., 100
         function printMany() {
             for (let i = 1; i < 101; i++) {
                 console.log(i);
             }
         }
 
-        //2.
+        // 2.輸出1, 4, 7, ..., 88
         function printEvery3() {
             for (let i = 1; i < 89; i += 3) {
                 console.log(i);
             }
         }
 
-        //3.
+        // 3.輸出連續N個*
         function stars(num) {
             let star = '';
             for (let i = 1; i <= num; i++) {
@@ -32,36 +32,68 @@
             console.log(star);
         }
 
-        //4.
+        // 4.檢查第一個字母是否為大寫
         function isUpperCase(str) {
             let str2 = str.toUpperCase();
             let result = true;
-            if (str.length === 0) { 
-                result = false; 
+            if (str.length === 0) {
+                result = false;
             }
             // if (str.charAt(0) != str2.charAt(0)) {
             //     result = false;
             // }
-            if(str[0]!=str2[0]) {
+            if (str[0] != str2[0]) {
                 result = false;
             }
             return result;
 
         }
 
-        //5.
+        //4. *修改
+        function isUpperCase1(str) {
+            if (str.trim().length == 0) {
+                return false;
+            }
+            return str[0] === str[0].toUpperCase();
+
+        }
+
+        //4. *修改2
+        function isUpperCase2(str) {
+            let result = false;
+            str = str.trim();
+            for (let i = 0; i < str.length; i++) {
+                if (str[0] === str[0].toUpperCase()) {
+                    result = true;
+                }
+            }
+            return result
+
+        }
+        // 5.檢查所有字母是否為大寫
         function isAllUpperCase(str) {
             let str2 = str.toUpperCase();
             let result = true;
-            if (str.length === 0) { 
-                result = false; 
+            if (str.length === 0) {
+                result = false;
             }
             if (str != str2) {
                 result = false;
             }
             return result;
         }
-        //6.
+
+        // 5. 修改
+        function isAllUpperCase2(str) {
+            if (str.trim().length == 0) {
+                return false;
+            }
+
+            return str == str.toUpperCase()
+        }
+
+
+        // 6.檢查第一個字母大寫的內容與位置，找不到為-1
         function position(str) {
             let str2 = str.toUpperCase();
             let num = -1;
@@ -77,7 +109,17 @@
 
         }
 
-        //7.
+        // 6.修改
+        function position2(str) {
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == str[i].toUpperCase()) {
+                    return str[i] + " " + i;
+                }
+            }
+            return -1;
+
+        }
+        // 7.找出陣列中的值，比第2個參數小的總個數
         function findSmallCount(arr, min) {
             let num = 0;
             for (let i = 0; i < arr.length; i++) {
@@ -88,7 +130,7 @@
             return num;
         }
 
-        //8.
+        // 8.找出陣列中的值，比第2個參數小的總合
         function findSmallerTotal(arr, min) {
             let num = 0;
             for (let i = 0; i < arr.length; i++) {
@@ -99,7 +141,7 @@
             return num;
         }
 
-        //9.
+        // 9.找出陣列中的值，比第2個參數小的值保存在新的陣列
         function findAllSmall(arr, min) {
             let arr2 = [];
             for (let i = 0; i < arr.length; i++) {
@@ -110,7 +152,7 @@
             return arr2;
         }
 
-        //10.
+        // 10.加總陣列中的值
         function sum(arr) {
             let sum = 0;
             for (let i = 0; i < arr.length; i++) {
