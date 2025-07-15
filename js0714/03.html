@@ -35,24 +35,24 @@
         //4.
         function isUpperCase(str) {
             let str2 = str.toUpperCase();
-            if (str.length === 0) { return false; }
-            if (str.charAt(0) == str2.charAt(0)) {
-                return true;
-            } else {
-                return false;
+            let result = true;
+            if (str.length === 0) { result = false; }
+            if (str.charAt(0) != str2.charAt(0)) {
+                result = false;
             }
+            return result;
 
         }
 
         //5.
         function isAllUpperCase(str) {
             let str2 = str.toUpperCase();
-            if (str.length === 0) { return false; }
-            if (str == str2) {
-                return true;
-            } else {
-                return false;
+            let result = true;
+            if (str.length === 0) { result = false; }
+            if (str != str2) {
+                result = false;
             }
+            return result;
         }
 
         //6.
