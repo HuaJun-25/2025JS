@@ -1,14 +1,13 @@
-
-// let sortBefore = document.getElementById("sortBefore");
-// let sortAfter = document.getElementById("sortAfter");
-// let secNo = document.getElementById("secNo");
+let sortBefore = document.getElementById("sortBefore");
+let sortAfter = document.getElementById("sortAfter");
+let secNo = document.getElementById("secNo");
 
 
 function getLott(tp, firstMax, firstNum, secMax) {
     let lott = [];
 
     if (tp == 2) {
-        firstNum = firstNum + 1;
+        firstNum += 1;
     }
     while (1) {
         if (lott.length == firstNum) {
@@ -31,7 +30,6 @@ function getLott(tp, firstMax, firstNum, secMax) {
     sortBefore.textContent = "排序前號碼：" + lott;
     lott.sort((a, b) => a - b);
     sortAfter.textContent = "排序後號碼：" + lott;
-
 
 }
 
