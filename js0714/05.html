@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>函式-0722.2</h3>
+    <hr>
+    <ul>
+        <li>
+            其餘參數：(...名稱)函式可以不限定個數的參數
+            <ul>
+                <li>其餘參數陣列</li>
+            </ul>
+        </li>
+        <li>結束函式：return</li>
+        <li>傳回二個以上的結果：陣列</li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        // 建立一個add函式，計算所有參數的總和
+        // let add = (n1, n2, n3 = 0, n4 = 0) => {
+        //     let sum = n1 + n2 + n3 + n4;
+        //     return sum;
+        // }
+
+        // 其餘參數：傳入後的number為陣列型態
+        let add = (...number) => {
+            let sum = 0;
+            for (let n of number) {
+                sum += n;
+            }
+            return sum;
+        }
+
+        // 其餘陣列參數：傳入的不是陣列的值要用其餘參數
+        let add2 = (...[x, y, z = 0]) => {
+            let sum = x + y + z;
+            return sum;
+        }
+
+        console.log(add2(5, 3));  //[5,3]
+        console.log(add2(5, 3, 8, 10));  //[5,3,8,10]
+
+        // 函數的傳回值
+        // 建立一個函式，超過分數範圍就離開，進入則檢查是否及格
+        let checkScore = (score) => {
+            if (score < 0 || score > 100) {
+                console.log("超出分數範圍");
+                return;
+            }
+            if (score >= 60) {
+                console.log("及格");
+            } else {
+                console.log("不及格");
+            }
+        }
+        checkScore(101);
+
+        // 傳回二個以上的結果，資料傳入用陣列出來
+        let addsub = (n1,n2)=>{
+            let sum = n1+n2;
+            let sub = n1-n2;
+            return [sum,sub]
+        }
+        let result = addsub(5,3);
+        console.log(`兩數相加為${result[0]}，兩數相減為${result[1]}`);
+
+        // 函式當作其他函式的參數
+        let sayHi =()=>{
+            return 'Hi, ';
+        }
+        let welcome= (callback, name)=>{
+            console.log(callback()+name);
+        }
+
+        welcome(sayHi,"world");
+    </script>
+</body>
+
+</html>

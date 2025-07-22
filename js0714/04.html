@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>函式-0722</h3>
+    <hr>
+    <ui>
+        <li>𝟭.匿名函式</li>
+        <li>𝟮.箭頭函式</li>
+        <li>預設參數：宣告函式時，可以自行定義參數的預設值</li>
+        <li>具名參數：可以不按照參數的順序給值</li>
+    </ui>
+    <script>
+        // 二數相加
+        function add(n1, n2) {
+            return n1 + n2;
+        }
+
+        // 匿名函式
+        let add2 = function (n1, n2) {
+            return n1 + n2;
+        }
+
+        // 輸入半徑算出圓面積
+        let area = function (r) {
+            // 常數const: 執行中的值不能變更
+            const pi = 3.14;
+            // conse pi = 5; >>無效
+            return pi * r * r;
+        }
+
+        // 箭頭函式
+        let area2 = (r) => {
+            const pi = 3.14;
+            return pi * r * r;
+        }
+
+        // 計算梯形面積
+        let area3 = (n1, n2, h) => {
+            return `(箭頭函式)梯形面積為: ${(n1 + n2) * h / 2}`;
+        }
+
+        // 預設參數：宣告函式時，可以自行定義參數的預設值
+        let area4 = (n1, n2, h = 10) => {
+            return `(預設參數)梯形面積為: ${(n1 + n2) * h / 2}`;
+        }
+
+        // 具名參數：必須使用物件型別{}傳送與接收指定參數
+        // 函式內用冒號 : 外面加大括號{} -> area5({h:5,n1:10,n2:20})
+        // 傳送和接收都須加 {} -> area5 = ({n1,n2,h})
+        let area5 = ({ n1, n2, h }) => {
+            return `(具名參數)梯形面積為: ${(n1 + n2) * h / 2}`;
+        }
+        console.log(area5({ h: 5, n1: 10, n2: 20 }));
+
+
+    </script>
+</body>
+
+</html>
