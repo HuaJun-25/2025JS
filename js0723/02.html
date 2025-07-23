@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 線上時鐘 -->
+    <p id="clock">線上時鐘區</p>
+    <p id="counter">60</p>
+
+    <!-- 不寫onclick是不做按鈕綁定 -->
+    <button type="button" id="btn">停止</button>
+
+    <script>
+        var timer;
+        // 當網頁被載入(load)後，自動顯示系統時間
+        // addEventListener()：監聽事件的方法
+        window.addEventListener('load', function () {
+            // setInterval()：每隔一段時間，做指定的事
+            // 秒數：1秒=1000毫秒
+            timer = window.setInterval(function () {
+                var clock = document.getElementById('clock');
+                clock.textContent = new Date().toLocaleString();
+            }, 1000);
+        });
+
+        // 事件停止
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            window.clearInterval(timer);
+        });
+
+    </script>
+</body>
+
+</html>
