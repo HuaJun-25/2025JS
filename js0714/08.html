@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 建立 User函式做為物件樣板
+        // 字首大寫，= ;
+        function User(name, age, myH, myW){
+            this.name= name;
+            this.age= age;
+            this.height= myH;
+            this.weight = myW;
+            this.showBmi= function(){
+                let bni = this.weught/Math.pow(this.height,2)
+                bmi = bmi.tofixed(2)
+                return bmi;
+            }
+        }
+
+        // 使用new
+        let user1 = new User('小叮噹', 20,157,50);
+        console.log(user1.showBmi());
+
+    </script>
+</body>
+</html>

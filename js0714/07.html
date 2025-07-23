@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>物件2</h3>
+    <p>0723</p>
+    <hr>
+    <ul>
+        <li>用new建立物件: new Object()</li>
+        <li>增刪改查</li>
+        <li></li>
+    </ul>
+    <script>
+        // 建構子方式：使用new關鍵字建立一個空物件後，再加入屬性與方法
+        // 建立空物件
+        let user = new Object();
+        // 建立屬性
+        user.name = "hokeda";
+        user.age = 2;
+
+        // 建立方法
+        user.showMsg=function(){
+            console.log(`hi, 我是${this.name}`)
+        }
+
+        // 呼叫物件方法
+        user.showMsg();
+
+        // 呼叫物件屬性
+        console.log(user.age);
+
+        // 更新屬性值
+        user.age = 5;
+        console.log(user.age);
+
+        // 增加物件屬性
+        user.email='hogehoge@poke.com';
+        console.log(user.email);
+
+        // 刪除物件屬性
+        delete user.age;
+        console.log(user.age); //undefined
+        delete user.showMsg; //不加()
+        
+    </script>
+</body>
+</html>

@@ -19,8 +19,13 @@
         </li>
         <li>結束函式：return</li>
         <li>傳回二個以上的結果：陣列</li>
-        <li></li>
-        <li></li>
+        <li>
+            把函式當作其他函式的回傳值
+            <ul>
+                <li>return一個函式</li>
+                <li>傳回值帶有參數</li>
+            </ul>
+        </li>
     </ul>
     <script>
         // 建立一個add函式，計算所有參數的總和
@@ -63,23 +68,44 @@
         checkScore(101);
 
         // 傳回二個以上的結果，資料傳入用陣列出來
-        let addsub = (n1,n2)=>{
-            let sum = n1+n2;
-            let sub = n1-n2;
-            return [sum,sub]
+        let addsub = (n1, n2) => {
+            let sum = n1 + n2;
+            let sub = n1 - n2;
+            return [sum, sub]
         }
-        let result = addsub(5,3);
+        let result = addsub(5, 3);
         console.log(`兩數相加為${result[0]}，兩數相減為${result[1]}`);
 
         // 函式當作其他函式的參數
-        let sayHi =()=>{
+        let sayHi = () => {
             return 'Hi, ';
         }
-        let welcome= (callback, name)=>{
-            console.log(callback()+name);
+
+        let welcome = (name) => {
+            console.log(sayHi() + name);
         }
 
-        welcome(sayHi,"world");
+        // 函式名稱呼叫另一個函式常用 callback
+        let welcome2 = (callback, name) => {
+            console.log(callback() + name);
+        }
+
+        welcome2(sayHi, "world");
+
+        // 把函式當作其他函式的回傳值，return一個函式
+        let sayHi2 = (name) => {
+            return function () {
+                consolelog(name)
+            }
+        }
+        // 傳回值帶有參數
+        let sayHi3 = (name) => {
+            return function (str1) {
+                console.log("Hi, " + name + ',' + str1);
+            }
+        }
+        sayHi3("ooo")("早安");
+
     </script>
 </body>
 

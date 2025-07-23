@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>物件</h3>
+    <p>0723</p>
+    <hr>
+    <ul>
+        <li>建立物件(屬性，方法)</li>
+        <li>
+            取得物件屬性
+            <ul>
+                <li>物件名稱.物件屬性</li>
+                <li>物件名稱["屬性名稱"]</li>
+            </ul></li>
+        <li>取得物件方法：物件名稱.物件方法()</li>
+        <li>更改物件屬性：物件名稱.物件屬性=屬性值</li>
+        <li>刪除物件屬性：前加delete</li>
+    </ul>
+
+    <script>
+        // 物件裡的變數稱屬性，函式稱方法 用 , 隔開，用:代替=
+        let user = {
+            // 屬性
+            name: "hokeda",
+            age: 2,
+
+            // 方法，使用屬性要帶物件名稱
+            showMsg: function () {
+                console.log('Hi, 我是' + user.name);
+            // 在物件中的方法使用同個物件裡的屬性可以用 this
+                console.log('Hi, 我是' + this.name);
+            }
+
+        };
+
+        // 取得物件屬性有兩種
+        // 物件名稱.物件屬性 ｜ 物件名稱["屬性名稱"]  
+        console.log(`使用者姓名: ${user.name}`);
+        console.log(`使用者姓名: ${user['age']}`);
+        // 取得物件方法 -> 物件名稱.物件方法()
+        user.showMsg();
+
+        // 更改物件屬性
+        user.age = 5;
+        console.log(user.age);
+
+        // 刪除物件屬性
+        delete user.age;
+        console.log(user.age); //undefined
+
+    </script>
+</body>
+
+</html>
