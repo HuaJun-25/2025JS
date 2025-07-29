@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>下拉選單</h3>
+    <h3>表單送出提示字</h3>
+    <h3>字數提示字</h3><hr>
+    <form>
+        <label for="url">請選擇網站</label>
+        <!-- 下拉式清單 -->
+        <select name="" id="url">
+            <option value="#">請選擇</option>
+            <option value="https://www.google.com/">google</option>
+            <option value="https://asia.pokemon-card.com/">pokemon</option>
+            <option value="https://www.youtube.com/">youtube</option>
+        </select>
+    </form>
+    <br>
+    <form action="" id="myform">
+        <input type="checkbox" name="" id="agree">我同意合約
+        <span id="msg"></span><br>
+        <input type="submit" value="送出">
+    </form><br>
+    <form action="" id="">
+        <label for="userid">會員編號</label>
+        <input type="text" name="" id="userid" size="10" maxlength="8"><br>
+        <span id="msg2"></span><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        let url=document.querySelector('#url');
+            url.addEventListener('change',()=>{
+                if(url.value!=""){
+                    let newin=open();
+                    newin.location.href=url.value;
+                }
+        });
+        
+        let mtform = document.querySelector("#myform");
+        let agree = document.querySelector("#agree");
+        let msg= document.querySelector('#msg');
+
+        myform.addEventListener('submit',(e)=>{
+            // 檢查沒有被勾選
+            if(!agree.checked){
+                msg.textContent="必須選取「我同意合約」";
+                msg.style.color="red";
+                e.preventDefault(); // 取消預設行為
+            }
+        });
+
+        let userid = document.querySelector('#userid');
+        let msg2 = document.querySelector('#msg2');
+        msg2.style.color="red";
+
+        // 游標在文字方塊上時
+        userid.addEventListener('focus',()=>{
+            msg2.textContent = "會員編號是8個字元";
+        });
+        // 游標離開文字方塊
+        userid.addEventListener('blur',()=>{
+            if(userid.value.length ==8){
+                msg2.textContent ="";
+            }else{
+                msg2.textContent = "注意! 會員編號必須是8個字";
+            }
+        });
+    </script>
+</body>
+</html>

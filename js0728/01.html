@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>跑馬燈</h3><p>0728</p><hr>
+    <marquee width="300" style="background-color: #A6C9B0;"
+    onmouseover="stop();"
+    onmouseout="start();">
+        跑馬燈
+    </marquee>
+    <p>使用 onmouseover/onmouseout 觸發滑鼠hover時停止stop()，離開時繼續移動start()</p>
+    <ul>
+        <li>html可以在標籤綁定事件，但較複雜的判斷需在script做</li>
+    </ul>
+
+    <!-- 寫type符合seo -->
+     <!-- 標籤綁定 -->
+    <button type="button" onclick="alert('Hi')"> 顯示訊息 </button>
+
+    <!-- 呼叫函式 -->
+    <button type="button" onclick="sayHi('sayHi')"> 顯示訊息 </button>
+    <script>
+        function sayHi(str){
+            alert(str);
+        }
+    </script>
+
+    <!-- 監聽事件 -->
+    <button type="button" id="btn3"> 顯示訊息 </button>
+    <script>
+        let btn3 = document.getElementById('#btn3'); //id用# class用.
+            btn3 = document.querySelector('btn3');
+        btn3.addEventListener('clock',function(){
+            alert(Hi3);
+        });
+        btn3.addEventListener('clock',()=>{
+            alert(Hi3);
+        });
+
+    </script>
+</body>
+</html>
